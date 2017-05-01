@@ -50,6 +50,6 @@ int main()
 	}
 	close(sockfd);
 	close(newsockfd);
-    
+  
 	return 0;
 }
