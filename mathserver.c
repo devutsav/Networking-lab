@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #define SERVER "127.0.0.1"
-#define UTSAV printf("Done by Utsav Das\n")
+
 
 
 
@@ -47,7 +47,7 @@ int main()
     int tmp;
     int nol=0;
 	top=-1;
-	UTSAV;
+               // Evaluates mathematical expression given in postfix form
 	for(;;)
 	{	
 			bzero(buffer,256);
@@ -55,7 +55,7 @@ int main()
 			n = read(newsockfd,buffer,255);
 			
 			printf("The expression: %s\n",buffer);
-			//inftop(buffer);
+			
 			printf("The expression is: %s\n",buffer);
 			for(i=0;i<strlen(buffer);i++)
 			{
