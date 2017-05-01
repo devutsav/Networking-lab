@@ -37,7 +37,7 @@ int main()
 	
 	while(1)
 	{
-		bzero(buffer,sizeof(buffer));
+		bzero(buffer,sizeof(buffer)); 
 
 		printf("To server: ");
 		int n=0;
