@@ -15,7 +15,7 @@ int main()
   
     char buffer[256];
     
-    sockfd = socket(AF_INET,SOCK_DGRAM,0);   //SOSK_DGRAM fro UDp
+    sockfd = socket(AF_INET,SOCK_DGRAM,0);   //SOCK_DGRAM for UDp
     if(sockfd==-1)
     {
 	printf("There was an error while creating the socket\n");
