@@ -48,7 +48,7 @@ int main()
     int nol=0;
 	top=-1;
                // Evaluates mathematical expression given in postfix form
-	for(;;)
+	do
 	{	
 			bzero(buffer,256);
 			
@@ -112,7 +112,7 @@ int main()
 			//a=0;
 			printf("%s",msg);
 			n = write(newsockfd,msg, 255);
-	}	
+	}while(strcmp(buffer,"exit")==0);	
 	
 		
 	
