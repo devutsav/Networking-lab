@@ -16,9 +16,7 @@ int main(int argc, char *argv[])
 
     if (argc < 3) 
     {
-        
-
-		     printf("Either %s, %s or %s not entered properly\n",argv[0],argv[1],argv[2]);
+        printf("Either %s, %s or %s not entered properly\n",argv[0],argv[1],argv[2]);
 	
         exit(0);
     }
@@ -40,7 +38,7 @@ int main(int argc, char *argv[])
          perror("ERROR connecting to the server");
          exit(1);
     }	
-	for(;;)
+	do
 	{
 	    printf("\nPlease enter the expression: ");
 	    bzero(buffer,256);
@@ -51,7 +49,9 @@ int main(int argc, char *argv[])
 	    n = read(sockfd,msg,255);
 	    
 	    printf("\nHere is the answer: %s\n",msg);
-	}
+		
+	}while(strcmp(buffer,"exit")==0);
+	
 	close(sockfd);
     return 0;
 }
