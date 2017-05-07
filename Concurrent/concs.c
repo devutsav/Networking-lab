@@ -20,20 +20,21 @@ int main()
 	serv_addr.sin_port=htons(1556);
 
 	sockfd = socket(AF_INET,SOCK_STREAM,0);
-
-	
 	if(sockfd<0)
 	{
 		printf("Socket was not created successfully\n");
 		exit(0);
 	}
+	printf("Socket created successfully\n");
 	clilen = sizeof(cli_addr);
 	serv_len = sizeof(serv_addr);
 	if(bind(sockfd,(struct sockaddr *)&serv_addr,serv_len)==0)
 	{
 		printf("Binding successful\n");
 	}	
-
+	else{
+		printf("Error in binding\n");
+	}
 	listen(sockfd,5);
 	
 	while(1)
@@ -62,10 +63,10 @@ int main()
 			printf("Still in parent process\n");
 		}	
 		close(newsockfd);
-		//close(sockfd);
+		
 	}
 	close(sockfd);
-	
+	close(newsockfd);
 	return 0;
 }
 	 
