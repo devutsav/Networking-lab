@@ -31,12 +31,10 @@ int main()
 	}
 	serv_len = sizeof(serv_addr);
 
-	if(connect(sockfd,(struct sockaddr *)&serv_addr,serv_len)!=-1);
+	if(connect(sockfd,(struct sockaddr *)&serv_addr,serv_len)!=-1)
 	{
 		printf("Connection successful\n");
 	}
-	
-
 	while(1)
 	{
 
