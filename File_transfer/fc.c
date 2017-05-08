@@ -1,4 +1,4 @@
-#include<stdio.h>    //!!!! SEGMENTATION FAULT !!!!//
+#include<stdio.h>
 #include<stdlib.h>
 #include<arpa/inet.h>
 #include<sys/types.h>
@@ -10,7 +10,7 @@
 int main()
 {
 	int serv_len,clilen,sockfd,newsockfd;
-	char filename;
+	char filename[100],fname[100];
 	char buffer[100];
 	struct sockaddr_in serv_addr,cli_addr;
 
@@ -43,20 +43,24 @@ int main()
 	FILE *fp;
 	printf("Enter the file name- ");
 	gets(filename);
-	//fp=fopen(filename,"r");
-	//bzero(buffer,sizeof(buffer));
-	//int n=0;
-	//while((buffer[n++]=getchar())!='\n');
+
+	printf("Enter the new filename: ");  
+	scanf("%s",fname); 
+
+	fp=fopen(fname,"w"); 
+	
 	write(sockfd,filename,sizeof(filename));
 
-	bzero(buffer,sizeof(buffer));
-	read(sockfd,buffer,sizeof(buffer));
-	printf("From server- %s\n",buffer);
-
+	while(1)
+	{
+		bzero(buffer,sizeof(buffer));
+		read(sockfd,buffer,sizeof(buffer));
+		fputs(buffer,stdout); 
+		fprintf(fp,"%s",buffer); 
+	}
 
 	close(sockfd);
 	fclose(fp);
 	return 0;
 
 }
-
