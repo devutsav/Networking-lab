@@ -55,18 +55,11 @@ int main()
 
 	bzero(buffer,sizeof(buffer));
 	read(newsockfd,buffer,100);
-	//printf("From client- %s\n",filename);
-	//bzero(buffer,sizeof(buffer));
-	/*int n=0;
-	  while((buffer[n++]=getchar())!='\n');*/
 	fp=fopen(buffer,"r");
 	while(fgets(bass,sizeof(bass),fp))
 	{
 		write(newsockfd,bass,sizeof(buffer));
 	}
-	//printf("To client- %s\n",buffer);
-
-
 	close(sockfd);
 	close(newsockfd);
 	fclose(fp);
