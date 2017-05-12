@@ -56,7 +56,8 @@ int main()
 		bzero(buffer,sizeof(buffer));
 		read(sockfd,buffer,sizeof(buffer));
 		fputs(buffer,stdout); 
-		fprintf(fp,"%s",buffer); 
+		fprintf(fp,"%s",buffer);  //not working
+		//Don't use fwrite here
 	}
 
 	close(sockfd);
