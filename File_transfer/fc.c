@@ -54,10 +54,14 @@ int main()
 	while(1)
 	{
 		bzero(buffer,sizeof(buffer));
-		read(sockfd,buffer,sizeof(buffer));
+		int bytes = read(sockfd,buffer,sizeof(buffer));
+		if(bytes==0)
+		{
+			break;
+		}
+		fputs(buffer,fp);
 		fputs(buffer,stdout); 
-		fprintf(fp,"%s",buffer);  //not working
-		//Don't use fwrite here
+		
 	}
 
 	close(sockfd);
